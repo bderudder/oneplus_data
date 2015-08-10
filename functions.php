@@ -45,9 +45,9 @@ function showFirstFive($connection, $sort){
 	$userArray;
 
 	if($sort == 0 || empty($sort)){
-		$sql = "SELECT rank, referrals, displayname FROM users ORDER BY rank ASC LIMIT 5";
+		$sql = "SELECT rank, referrals, displayname FROM users ORDER BY rank ASC, referrals DESC LIMIT 5";
 	}else if ($sort == 1){
-		$sql = "SELECT rank, referrals, displayname FROM users ORDER BY referrals DESC LIMIT 5";
+		$sql = "SELECT rank, referrals, displayname FROM users ORDER BY referrals DESC, rank ASC LIMIT 5";
 	}
 
 	$count = 0;
