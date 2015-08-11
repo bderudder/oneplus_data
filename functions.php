@@ -140,6 +140,30 @@ function fetchUserStatsFromKid($kid) {
 }
 
 /**
+ * Add a new user in the database.
+ * @return true if the user was added, otherwise false.
+ */
+function addNewUserInDB($username, $email, $invite_url) {
+    if($connection = connectDB()) {
+        if(!checkIfUserExists($connection, $username)) {
+            $userStats = fetchUserStatsFromKid($invite_url);
+            if (!strContains($userStats, 'error')) {
+                $query = "INSERT INTO users(displayname, rank, referrals, email, invite_url) VALUES (?, ?, ?, ?, ?)";
+                $stmt = $connection->stmt_init();
+                $stmt->prepare($query);
+                $stmt->bind_param("siiss", $username, explode(';', $userStats)[0], explode(';', $userStats)[1], $email, $invite_url);
+                $stmt->execute();
+
+                $connection->close();
+                return true;
+            }
+        }
+        $connection->close();
+    }
+    return false;
+}
+
+/**
  * Return true if string starts with the text given
  */
 function startsWith($text, $startsWith)
