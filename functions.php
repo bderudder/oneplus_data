@@ -146,4 +146,19 @@ function getUserStats($connection, $user)
     return $userArray;
 }
 
+/**
+ * Return true if string starts with the text given
+ */
+function startsWith($text, $startsWith)
+{
+    return $startsWith === "" || strrpos($text, $startsWith, -strlen($text)) !== FALSE;
+}
+
+/**
+ * Return true if string ends with the text given
+ */
+function endsWith($text, $endsWith) {
+    return $endsWith === "" || (($temp = strlen($text) - strlen($endsWith)) >= 0 && strpos($text, $endsWith, $temp) !== FALSE);
+}
+
 ?>
