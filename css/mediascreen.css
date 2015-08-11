@@ -1,6 +1,8 @@
 @media screen and (max-width: 1120px) {
+    
     section.leaderboard {
         margin: auto;
+        width: 300px;
         position: relative;
         text-align: center;
         left: 0;
@@ -8,6 +10,14 @@
 
     .wrapper {
         position: relative;
-        top: 300px;
+
+    }
+
+    .wrapper-vertical-centered {
+        position: relative;
+        top: 0;
+        -webkit-transform: translateY(0%);
+        -ms-transform: translateY(0%);
+        transform: translateY(0%);
     }
 }

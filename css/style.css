@@ -14,7 +14,6 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
     font-weight: 300;
     outline: none;
 }
@@ -61,12 +60,19 @@ body :-ms-input-placeholder {
     background: -webkit-linear-gradient(top left, #ee001d 0%, #e83452 100%);
     background: linear-gradient(to bottom right, #ee001d 0%, #e83452 100%);
     position: absolute;
-    top: 50%;
     left: 0;
     width: 100%;
-    height: 650px;
-    margin-top: -300px;
+    height: 100%;
     overflow: hidden;
+}
+
+.wrapper-vertical-centered {
+    z-index: 2;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 .wrapper.form-success .container h1 {
@@ -214,13 +220,13 @@ select {
 
 table {
     border: 0;
-    width: 600px;
+    width: 500px;
     margin: auto;
     text-transform: uppercase;
 }
 
 table tr {
-    height: 100px;
+    height: 50px;
 }
 
 /* FORM STYLING MADE WITH LOVE :D */
@@ -498,9 +504,12 @@ form input:focus {
 
 footer {
     z-index: 2;
-    position: relative;
-    top: 110px;
-    height: 20px;
+    text-align: center;
+    width:100%;
+    height:20px;
+    position:absolute;
+    bottom:5px;
+    left:0;
 }
 
 footer a {
