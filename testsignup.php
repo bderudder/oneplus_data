@@ -11,10 +11,10 @@ $email = $_POST['email'];
 
 //getting API FROM Oneplus//
 
-$url = "https://invites.oneplus.net/index.php?r=share/signup&success_jsonpCallback=success_jsonpCallback&email=".$email."&koid=6GJ8S&_=1438659411445";
+$url = "https://invites.oneplus.net/index.php?r=share/signup&success_jsonpCallback=success_jsonpCallback&email=" . $email . "&koid=6GJ8S&_=1438659411445";
 
 $JSON = file_get_contents($url);
-$JSON = substr(substr($JSON,22),0,-1);
+$JSON = substr(substr($JSON, 22), 0, -1);
 $JSON = (json_decode($JSON));
 
 $rank = $JSON->data->rank;
