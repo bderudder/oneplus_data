@@ -161,4 +161,11 @@ function endsWith($text, $endsWith) {
     return $endsWith === "" || (($temp = strlen($text) - strlen($endsWith)) >= 0 && strpos($text, $endsWith, $temp) !== FALSE);
 }
 
+/**
+ * Return true if string contains the text given
+ */
+function strContains($text, $word) {
+    return (strpos($text,$word) !== false);
+}
+
 ?>
