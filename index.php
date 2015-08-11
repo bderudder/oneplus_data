@@ -102,6 +102,7 @@ $prevEmail = (isset($_GET['email']) ? $_GET['email'] : '');
                 </form>
             </section>
         <?php } else { ?>
+            <?php addNewUserInDB($_GET['disname'], $_GET['email'], $_GET['invite_url']); ?>
             <section class="middle">
                 <h1>We found your data!</h1>
 
@@ -147,8 +148,7 @@ $prevEmail = (isset($_GET['email']) ? $_GET['email'] : '');
     </ul>
 
 </div>
+</body>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="js/index.js"></script>
-</body>
-
 </html>
