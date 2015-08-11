@@ -95,8 +95,13 @@ $users = showFirstFive($conn, $sort);
             TEXT
         </section>
 
-        <footer><p>Made with love by <a href="http://www.bdmultimedia.be/" target="_blank">BDmultimedia</a>, <a href="https://forums.oneplus.net/members/xtrme-q.155318/" target="_blank">Xtrme Q</a> &
-                <a href="https://forums.oneplus.net/members/vici0us.663229/" target="_blank">Vici0us</a></p></footer>
+        <footer>
+            <p>Made with love by
+                <a href="http://www.bdmultimedia.be/" target="_blank">BDmultimedia</a>,
+                <a href="https://forums.oneplus.net/members/xtrme-q.155318/" target="_blank">Xtrme Q</a> &
+                <a href="https://forums.oneplus.net/members/jamesst20.131753/" target="_blank">Jamesst20</a>
+            </p>
+        </footer>
 
     </div>
 

@@ -5,13 +5,13 @@
  */
 function connectDB()
 {
-   $servername = "renssmit.be.mysql";
+   $servername = "localhost";
 
-$username = "renssmit_be";
+$username = "root";
 
-$password = "hidden";
+$password = "root";
 
-$dbname = "renssmit_be";
+$dbname = "oneplus_data";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
