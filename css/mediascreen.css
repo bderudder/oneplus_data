@@ -1,13 +1,13 @@
 @media screen and (max-width: 1120px) {
-   section.leaderboard {
-    	margin: auto;
+    section.leaderboard {
+        margin: auto;
         position: relative;
         text-align: center;
         left: 0;
     }
 
-    .wrapper{
-    	position: relative;
-    	top:300px;
+    .wrapper {
+        position: relative;
+        top: 300px;
     }
 }
