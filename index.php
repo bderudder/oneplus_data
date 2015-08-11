@@ -4,27 +4,15 @@ include_once("functions.php");
 
 
 $user;
-// Create connection //
+
 $conn = connectDB();
-// End creation //
-
-// Check connection
-
-echo checkConnection($conn);
-
-// End Check //
-
-//create the first five user arrays
-
-if (isset($_GET['sort'])) {
-    $sort = $_GET['sort'];
-} else {
-    $sort = 0;
+if (!isset($conn)) {
+    exit('Failed to connect to database.');
 }
 
-$users = showFirstFive($conn, $sort);
+$sort = (isset($_GET['sort']) ? $_GET['sort'] : 0);
 
-//end creating array//
+$users = showFirstFive($conn, $sort);
 
 $conn->close();
 
@@ -64,9 +52,9 @@ $prevEmail = (isset($_GET['email']) ? $_GET['email'] : '');
         <div id="mainselection">
             <select name="sort" onchange="this.form.submit();">
                 <!-- Sort leaderboard by Rank -->
-                <option <?php if ($sort == 0) print 'SELECTED'; ?> value="0">Sort by rank</option>
+                <option <?php if ($sort == 0) print 'SELECTED'; ?> value="0">Sort by best rank</option>
                 <!-- Sort leaderboard by Referrals -->
-                <option <?php if ($sort == 1) print 'SELECTED'; ?> value="1">Sort by referrals</option>
+                <option <?php if ($sort == 1) print 'SELECTED'; ?> value="1">Sort by worst rank</option>
             </select>
         </div>
     </form>
@@ -94,7 +82,7 @@ $prevEmail = (isset($_GET['email']) ? $_GET['email'] : '');
 <div class="wrapper">
 
     <div class="container">
-        <?php if (!isset($_GET['invite_url']) || strContains($apiInfo = file_get_contents('http://' . $_SERVER['HTTP_HOST'] . '/api.php?kid=' . $_GET['invite_url']), 'error')) { ?>
+        <?php if (!isset($_GET['invite_url']) || ($apiInfo = fetchUserStatsFromKid($_GET['invite_url'])) == null) { ?>
             <section class="middle">
                 <h1>Welcome OnePlus Fan</h1>
 
@@ -102,20 +90,21 @@ $prevEmail = (isset($_GET['email']) ? $_GET['email'] : '');
 
                 <div class="clear"></div>
 
-                <?php if(isset($_GET['invite_url'])) { ?>
+                <?php if (isset($_GET['invite_url'])) { ?>
                     <h2>Invalid referral invite link. Please try again.</h2>
                 <?php } ?>
 
-                <form class="form" method="get" action="index.php"> <!-- Do your thing? xD // efkes aangepast... getemail <-> testsignup (Bjorn) -->
-                    <input type="text" name="disname" placeholder="Display name" value="<?php echo $prevUsername ?>" required >
-                    <input type="email" name="email" placeholder="Enter a valid email address" value="<?php echo $prevEmail ?>" required >
-                    <input type="text" name="invite_url" placeholder="Enter your referral invite link" required >
+                <form class="form" method="get" action="index.php">
+                    <input type="text" name="disname" placeholder="Display name" value="<?php echo $prevUsername ?>" required>
+                    <input type="email" name="email" placeholder="Enter a valid email address" value="<?php echo $prevEmail ?>" required>
+                    <input type="text" name="invite_url" placeholder="Enter your referral invite link" required>
                     <button class="btn btn-3 btn-3e icon-arrow-right" type="submit">Show data</button>
                 </form>
             </section>
         <?php } else { ?>
             <section class="middle">
                 <h1>We found your data!</h1>
+
                 <div class="clear"></div>
                 <table>
                     <tr>
@@ -133,10 +122,15 @@ $prevEmail = (isset($_GET['email']) ? $_GET['email'] : '');
                 </form>
             </section>
         <?php } ?>
-        <footer>
-            <p>Made with love by <a href="http://www.bdmultimedia.be/" target="_blank">BDmultimedia</a>, <a href="https://forums.oneplus.net/members/xtrme-q.155318/" target="_blank">Xtrme Q</a> & <a href="https://forums.oneplus.net/members/vici0us.663229/" target="_blank">Vici0us</a></p>
-        </footer>
 
+        <footer>
+            <p>Made with love by
+                <a href="http://www.bdmultimedia.be/" target="_blank">BDmultimedia</a>,
+                <a href="https://forums.oneplus.net/members/xtrme-q.155318/" target="_blank">Xtrme Q</a>,
+                <a href="https://forums.oneplus.net/members/vici0us.663229/" target="_blank">Vici0us</a> &
+                <a href="https://forums.oneplus.net/members/jamesst20.131753/" target="_blank">Jamesst20</a>
+            </p>
+        </footer>
     </div>
 
     <ul class="bg-bubbles">
@@ -151,11 +145,10 @@ $prevEmail = (isset($_GET['email']) ? $_GET['email'] : '');
         <li></li>
         <li></li>
     </ul>
+
 </div>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
 <script src="js/index.js"></script>
-
-
 </body>
+
 </html>

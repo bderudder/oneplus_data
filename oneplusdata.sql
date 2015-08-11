@@ -16,47 +16,34 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
---
--- Databank: `oneplusdata`
---
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `oneplus_details`
---
-
-CREATE TABLE IF NOT EXISTS `oneplus_details` (
-  `email` varchar(30) NOT NULL,
-  `string` varchar(300) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
 
 --
 -- Tabelstructuur voor tabel `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `DisplayName` text NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `referrals` int(10) NOT NULL,
+  `rank` int(11) NOT NULL,
+  `displayname` text NOT NULL,
   `email` text NOT NULL,
-  `Rank` int(11) NOT NULL,
-  `Referrals` int(11) NOT NULL,
-  UNIQUE KEY `Rank` (`Rank`)
+  `invite_url` text NOT NULL,
+  UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `users`
 --
 
-INSERT INTO `users` (`DisplayName`, `email`, `Rank`, `Referrals`) VALUES
-('KeithLi', 'kpd20062000@yahoo.com.hk', 2208, 81),
-('lorenzovinci19', 'lorenzovinci19@yahoo.it', 6677, 18),
-('Gopal kedia', 'gopal.kedia009@gmail.com', 9203, 11),
-('BjornDer', 'bjorn.derudder@gmail.com', 16977, 5),
-('SunnyHQ', 'zsunnyy.lv@gmail.com', 59841, 0),
-('Gazzer2k', 'gazzer2k@yahoo.com', 245456, 0),
-('mato22', 'mato252@gmail.com', 2074008, 0);
+INSERT INTO `users` (`displayname`, `email`, `rank`, `referrals`, `invite_url`) VALUES
+('KeithLi', 'kpd20062000@yahoo.com.hk', 2803, 82, 'https://oneplus.net/ca_en/invites?kolid=5BADZG'),
+('lorenzovinci19', 'lorenzovinci19@yahoo.it', 7185, 21, 'https://oneplus.net/ca_en/invites?kolid=6G3MC'),
+('Gopal kedia', 'gopal.kedia009@gmail.com', 9205, 15, 'https://oneplus.net/ca_en/invites?kolid=6GCYW'),
+('BjornDer', 'bjorn.derudder@gmail.com', 21743, 5, 'https://oneplus.net/ca_en/invites?kolid=WBJPAV'),
+('SunnyHQ', 'zsunnyy.lv@gmail.com', 73167, 0, 'https://oneplus.net/ca_en/invites?kolid=6G3SA'),
+('Gazzer2k', 'gazzer2k@yahoo.com', 245456, 0, 'https://oneplus.net/ca_en/invites?kolid=LYTKA0'),
+('mato22', 'mato252@gmail.com', 2074008, 0, 'https://oneplus.net/ca_en/invites?kolid=MAHGSP'),
+('Jamesst20', 'Jamesst20@gmail.com', 2443, 102, 'https://oneplus.net/ca_en/invites?kolid=AFKQRB');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
