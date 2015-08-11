@@ -179,17 +179,17 @@ section.leaderboard {
     border: 1px solid #BB0C19;
 }
 
-.leaderboard li#one:before {
+.leaderboard li#leaderboard-1:before {
     background: #BB0C19;
     color: #fff;
 }
 
-.leaderboard li#two:before {
+.leaderboard li#leaderboard-2:before {
     background: #D10C19;
     color: #fff;
 }
 
-.leaderboard li#three:before {
+.leaderboard li#leaderboard-3:before {
     background: #E20C19;
     color: #fff;
 }
