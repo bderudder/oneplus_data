@@ -25,3 +25,9 @@ Copyright 2015 Rens Smit
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), the rights to use, copy, modify, merge the Software for private use only.
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+##Disclaimer
+
+We are committed to keeping your e-mail address confidential. We do not sell, rent, or lease our subscription lists to third parties, and we will not provide your personal information to any third party individual, government agency, or company at any time unless compelled to do so by law. This project is a community initiative and it’s not directly connected to OnePlus.
+
+We will use your e-mail address solely to provide timely information about you reservation stats and to inform you if you win one of our future giveaways.

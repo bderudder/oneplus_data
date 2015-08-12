@@ -8,7 +8,7 @@ function connectDB()
     $servername = "localhost";
     $username = "root";
     $password = "root";
-    $dbname = "oneplusdata";
+    $dbname = "oneplus_data";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 

@@ -200,6 +200,13 @@ section.leaderboard {
     color: #fff;
 }
 
+p button {
+    border: none;
+    padding: 15px 30px;
+    outline: none;
+    background: #85b91e;
+}
+
 select {
     font-family: 'Source Sans Pro', sans-serif;
     border: 0;
