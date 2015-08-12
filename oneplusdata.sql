@@ -31,6 +31,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE IF NOT EXISTS `users_update_task` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `started` datetime NOT NULL,
+  `total_user_count` int(10) NOT NULL,
+  `user_updated_count` int(10) NOT NULL,
+  `ended` datetime NULL,
+  `current_user_id` text NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Gegevens worden geëxporteerd voor tabel `users`
 --

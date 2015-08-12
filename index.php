@@ -30,6 +30,8 @@ $prevEmail = (isset($_GET['email']) ? $_GET['email'] : '');
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediascreen.css">
+    <link rel="stylesheet" href="css/ladda.min.css">
+    <!-- ladda is required for loading buttons -->
     <script language="javascript" type="text/javascript">
         function doReload(catid) {
             document.location = 'index.php?sort=' + sort;
@@ -65,9 +67,9 @@ $prevEmail = (isset($_GET['email']) ? $_GET['email'] : '');
             <ol>
                 <!-- Get data from database here, username, rank and refs
                 (it would be nice if you have the . in 1.000.000 it makes it more easy to read) -->
-                <?php for ($i = 1; $i <= 5; $i++) {
+                <?php for ($i = 0; $i < 5; $i++) {
                     if (isset($users[$i])) { ?>
-                        <li id="leaderboard-<?php echo $i ?>">
+                        <li id="leaderboard-<?php echo $i+1 ?>">
                             <?php echo $users[$i]['username'] ?>
                             <br/>
                             <span>Rank: <?php echo $users[$i]['rank']; ?> / Referrals: <?php echo $users[$i]['referrals']; ?></span>
@@ -119,6 +121,9 @@ $prevEmail = (isset($_GET['email']) ? $_GET['email'] : '');
                     </form>
                 </section>
             <?php } ?>
+            <div class="refresh-users-rank">
+                <button class="ladda-button" data-style="expand-right"><span class="ladda-label">Refresh user's rank</span></button>
+            </div>
         </div>
 
     </div>
@@ -146,5 +151,8 @@ $prevEmail = (isset($_GET['email']) ? $_GET['email'] : '');
 </div>
 </body>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<!-- Spin & ladda is required for loading buttons -->
+<script src="js/spin.min.js"></script>
+<script src="js/ladda.min.js"></script>
 <script src="js/index.js"></script>
 </html>
