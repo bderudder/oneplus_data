@@ -5,13 +5,10 @@
  */
 function connectDB()
 {
-   $servername = "localhost";
-
-$username = "root";
-
-$password = "root";
-
-$dbname = "oneplus_data";
+    $servername = "localhost";
+    $username = "root";
+    $password = "root";
+    $dbname = "oneplusdata";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -25,7 +22,34 @@ $dbname = "oneplus_data";
 //--------------------------
 
 /**
- * Fetch users in database and stats on the API
+ * Fetch all users in database and stats cached in db
+ * @return array of users
+ */
+function getAllUsers($connection, $sort)
+{
+
+    $userArray = array();
+
+    $result = $connection->query('SELECT id, displayname, email, referrals, rank, invite_url FROM users ORDER BY rank '.($sort == 1 ? 'DESC' : 'ASC'));
+
+    $count = 0;
+    while ($row = $result->fetch_assoc()) {
+        $userArray[$count]['id'] = $row["id"];
+        $userArray[$count]['username'] = $row["displayname"];
+        $userArray[$count]['rank'] = $row["rank"];
+        $userArray[$count]['email'] = $row["email"];
+        $userArray[$count]['referrals'] = $row["referrals"];
+        $userArray[$count]['invite_url'] = $row["invite_url"];
+
+        $count++;
+    }
+
+    return $userArray;
+}
+
+
+/**
+ * Fetch users in database and stats cached in db
  * @return array of the first 5 users
  */
 function showFirstFive($connection, $sort)
@@ -35,11 +59,8 @@ function showFirstFive($connection, $sort)
 
     $result = $connection->query('SELECT displayname, referrals, rank FROM users ORDER BY rank '.($sort == 1 ? 'DESC' : 'ASC'));
 
-    $count = 1;
+    $count = 0;
     while ($row = $result->fetch_assoc()) {
-        //Fetching the full DB on API would take too long. That's why we select old data in database.
-        //$apiInfo = file_get_contents('http://' . $_SERVER['HTTP_HOST'] . '/api.php?kid=' . $row['invite_url']);
-
         $userArray[$count]['username'] = $row["displayname"];
         $userArray[$count]['rank'] = $row["rank"];
         $userArray[$count]['referrals'] = $row["referrals"];
@@ -135,7 +156,7 @@ function getUserStatsFromAPI($connection, $user)
  * @return null|string if kid is valid
  */
 function fetchUserStatsFromKid($kid) {
-    $apiInfo = file_get_contents('http://' . $_SERVER['HTTP_HOST'] . '/oneplus_data/api.php?kid=' . $kid);
+    $apiInfo = file_get_contents('http://' . $_SERVER['HTTP_HOST'] . '/api.php?kid=' . $kid);
     if(!strContains($apiInfo, 'error')) {
         return $apiInfo;
     }
