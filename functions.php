@@ -156,7 +156,7 @@ function getUserStatsFromAPI($connection, $user)
  * @return null|string if kid is valid
  */
 function fetchUserStatsFromKid($kid) {
-    $apiInfo = file_get_contents('http://' . $_SERVER['HTTP_HOST'] . '/api.php?kid=' . $kid);
+    $apiInfo = file_get_contents('http://' . $_SERVER['HTTP_HOST'] . 'oneplus_data/api.php?kid=' . $kid);
     if(!strContains($apiInfo, 'error')) {
         return $apiInfo;
     }

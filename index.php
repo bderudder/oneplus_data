@@ -83,9 +83,9 @@ $prevEmail = (isset($_GET['email']) ? $_GET['email'] : '');
             <?php if (!isset($_GET['invite_url']) || ($apiInfo = fetchUserStatsFromKid($_GET['invite_url'])) == null) { ?>
                 <section class="middle">
                     <h1>Welcome OnePlus Fan</h1>
-
-                    <h3>Get your reservation data by filling in your (forum)name & email below.</h3>
-
+                    <br/>
+                    <h3>Get your reservation data by filling in your (forum)name, email & kid below.</h3>
+                    <h3>We use your email for future giveaways.</h3>
                     <div class="clear"></div>
 
                     <?php if (isset($_GET['invite_url'])) { ?>
@@ -131,7 +131,6 @@ $prevEmail = (isset($_GET['email']) ? $_GET['email'] : '');
             <p>Made with love by
                 <a href="http://www.bdmultimedia.be/" target="_blank">BDmultimedia</a>,
                 <a href="https://forums.oneplus.net/members/xtrme-q.155318/" target="_blank">Xtrme Q</a>,
-                <a href="https://forums.oneplus.net/members/vici0us.663229/" target="_blank">Vici0us</a> &
                 <a href="https://forums.oneplus.net/members/jamesst20.131753/" target="_blank">Jamesst20</a>
             </p>
         </footer>
