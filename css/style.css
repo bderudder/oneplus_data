@@ -89,6 +89,14 @@ body :-ms-input-placeholder {
     text-align: center;
 }
 
+.containerleader {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 0;
+    height: 650px;
+    text-align: center;
+}
+
 .container h1 {
     font-size: 40px;
     -webkit-transition-duration: 1s;
@@ -200,12 +208,29 @@ section.leaderboard {
     color: #fff;
 }
 
-p button {
-    border: none;
-    padding: 15px 30px;
-    outline: none;
-    background: #85b91e;
+table#leaderboard {
+    width:100%;
 }
+table#leaderboard, th, td {
+    border: 0;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+    text-align: center;
+}
+table#leaderboard tr:nth-child(even) {
+    background-color: #FF1D3D;
+}
+table#leaderboard tr:nth-child(odd) {
+   background-color:#BF162E;
+}
+table#leaderboard th    {
+    background-color: #303030;
+    color: white;
+}
+
 
 select {
     font-family: 'Source Sans Pro', sans-serif;
