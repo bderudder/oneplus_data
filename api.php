@@ -5,11 +5,13 @@ include_once('functions.php');
 //_$GET['kid'] can accept a full invite url or the kid only
 if (isset($_GET['kid'])) {
     $kid = $_GET['kid'];
-    if (startsWith($kid, "https://oneplus.net/")) {
+    if (startsWith($kid, "https://oneplus.net/") || startsWith($kid, "http://oneplus.net/")) {
         $parsedURL = parse_url($kid, PHP_URL_QUERY);
         parse_str($parsedURL, $params);
         if (isset($params['kolid'])) {
             $kid = $params['kolid'];
+        } else if (isset($params['kid'])) {
+            $kid = $params['kid'];
         } else {
             exit('error : invalid shareable invite link.');
         }
