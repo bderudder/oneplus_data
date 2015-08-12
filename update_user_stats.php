@@ -16,7 +16,6 @@ if (set_time_limit(0)) {
                     updateTaskProgress($conn, $taskID, $users[$i]['id']);
                     $newUserStats = fetchUserStatsFromKid($users[$i]['invite_url']);
                     updateUserStats($conn, $users[$i]['username'], explode(';', $newUserStats)[0], explode(';', $newUserStats)[1]);
-                    sleep(2);
                 }
                 setTaskFinished($conn, $taskID, -1);
                 echo 'Update finished.';
