@@ -1,4 +1,9 @@
 <?php
+
+function getWebsiteRoot() {
+    return 'http://' . $_SERVER['HTTP_HOST'] . '/oneplus_data';
+}
+
 /**
  * Connect to the database.
  * @return null if failed, otherwise mysqli.
@@ -156,7 +161,7 @@ function getUserStatsFromAPI($connection, $user)
  * @return null|string if kid is valid
  */
 function fetchUserStatsFromKid($kid) {
-    $apiInfo = file_get_contents('http://' . $_SERVER['HTTP_HOST'] . '/oneplus_data/api.php?kid=' . $kid);
+    $apiInfo = file_get_contents(getWebsiteRoot().'/api.php?kid=' . $kid);
     if(!strContains($apiInfo, 'error')) {
         return $apiInfo;
     }

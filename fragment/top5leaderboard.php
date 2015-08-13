@@ -15,7 +15,7 @@ $conn->close();
 <section class="leaderboard">
     <header>
         <h1>Leader board</h1>
-        <h4><a href="#">View leader board</a></h4>
+        <h4><a href="leaderboard.php">View leader board</a></h4>
     </header>
 
     <form action="index.php" method="get">
