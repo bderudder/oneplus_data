@@ -3,8 +3,6 @@
 <div class="wrapper-vertical-centered">
     <div class="containerleader">
         <section class="middle">
-            <h1>Under construction ! Dummy data !</h1> <br>
-
             <h1>Reservation Data Leader Board</h1>
 
             <div class="clear"></div>
@@ -13,36 +11,37 @@
                     <th>Website rank</th>
                     <th>Display Name</th>
                     <th>Reservation Rank</th>
-                    <!-- Sort by BEST/WORST when you click on it? Indicate with small arrow? up/down -->
+                    <!--
+                        Sort by BEST/WORST when you click on it? Indicate with small arrow? up/down
+
+                        Just in case you did not notice, sorting by rank or referrals is exactly the same.
+                        The more referrals you have, the best is your rank :P Someone with the best rank is
+                        necessary the one with the most referrals.
+
+                        PS: Sorting is ready -> leaderboard.php?sort=0 (or 1)
+                    -->
                     <th>Refferrals</th>
-                    <!-- Sort by BEST/WORST when you click on it? Indicate with small arrow? up/down -->
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>inthiaano</td>
-                    <td>8</td>
-                    <td>19.000</td>
-                    <!-- Can you do it with the . everywhere or is that in db?-->
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Peter</td>
-                    <td>73</td>
-                    <td>8.000</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Kieren</td>
-                    <td>228</td>
-                    <td>1.000</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Xtrme Q</td>
-                    <td>3.000</td>
-                    <td>50</td>
-                </tr>
+                <?php
+                    $conn = connectDB();
+                    $sort = (isset($_GET['sort']) ? $_GET['sort'] : 0);
+                    $users = getAllUsers($conn, $sort);
+                    $conn->close();
+                    $itemPerPage = 35; //Items per page
+                    $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1; //Current page number
+                    $fromIndex = ($page - 1) * $itemPerPage;
+                    $toIndex = (($page * $itemPerPage) > count($users)) ? (count($users)-1) : ($page * $itemPerPage);
+                ?>
+                <?php for($i = $fromIndex; $i < $toIndex; $i++) { ?>
+                    <tr>
+                        <td><?php echo $i + 1 ?></td>
+                        <td><?php echo $users[$i]['username'] ?></td>
+                        <td><?php echo beautifyNumber($users[$i]['rank']) ?></td>
+                        <td><?php echo beautifyNumber($users[$i]['referrals']) ?></td>
+                    </tr>
+                <?php } ?>
             </table>
+            <!-- Missing a pager with href=leaderboard.php?page=pageNumber -->
         </section>
     </div>
 </div>
