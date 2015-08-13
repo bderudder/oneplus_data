@@ -45,8 +45,8 @@ $prevEmail = (isset($_GET['email']) ? $_GET['email'] : '');
                         <td><h2>Number of referrals</h2></td>
                     </tr>
                     <tr>
-                        <td><h1><?php echo explode(';', $apiInfo)[0] ?></h1></td>
-                        <td><h1><?php echo explode(';', $apiInfo)[1] ?></h1></td>
+                        <td><h1><?php echo beautifyNumber(explode(';', $apiInfo)[0]) ?></h1></td>
+                        <td><h1><?php echo beautifyNumber(explode(';', $apiInfo)[1]) ?></h1></td>
                     </tr>
                 </table>
 

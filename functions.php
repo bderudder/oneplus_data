@@ -193,6 +193,17 @@ function addNewUserInDB($username, $email, $invite_url) {
 }
 
 /**
+ * Add seperator in big numbers to make it easier to read
+ */
+function beautifyNumber($number) {
+
+    for($i = strlen($number) - 3; $i > 0; $i-=3) {
+        $number = substr($number, 0, $i).' '.substr($number, $i);
+    }
+    return $number;
+}
+
+/**
  * Return true if string starts with the text given
  */
 function startsWith($text, $startsWith)
