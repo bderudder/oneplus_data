@@ -42,6 +42,20 @@
                 <?php } ?>
             </table>
             <!-- Missing a pager with href=leaderboard.php?page=pageNumber -->
+
+            <ul class="pagination">
+                <li class="pagination-prev">Previous</li>
+                <li class="pagination-active"><a href="?page=1">1</a></li>
+                <li><a href="?page=2">2</a></li>
+                <li><a href="?page=3">3</a></li>
+                <li><a href="?page=4">4</a></li>
+                <li><a href="?page=5">5</a></li>
+                <li><a href="?page=6">6</a></li>
+                <li><a href="?page=7">7</a></li>
+                <li class="pagination-next"><a href="#">Next</a></li>
+            </ul>
+
+
         </section>
     </div>
 </div>
