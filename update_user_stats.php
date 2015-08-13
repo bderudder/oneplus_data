@@ -16,7 +16,7 @@ if (($conn = connectDB())) {
 
         if((($taskID = isTaskRunning($conn)) != 0) && !(isset($_GET['action']) && $_GET['action'] == 'continue')) {
             //If there is a task running and the action!=continue,
-            //we stop to avoid multiple task instance being ran at smae time.
+            //we stop to avoid multiple task instance being ran at same time.
             exit();
         }
 
@@ -27,8 +27,8 @@ if (($conn = connectDB())) {
 
         if ($taskID != 0) {
             for ($i = getTaskUserCountProgress($conn, $taskID); $i < count($users); $i++) {
-                //If time elapsed is more than 30 seconds, rerun the script to bypass PHP timeout
-                if((time() - $startTime) > 30) {
+                //If time elapsed is more than 15 seconds, rerun the script to bypass PHP timeout
+                if((time() - $startTime) > 15) {
                     asyncExecuteScript('update_user_stats.php?action=continue');
                     exit('Script continuing on another process.');
                 }
