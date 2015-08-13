@@ -106,6 +106,10 @@ body :-ms-input-placeholder {
     font-weight: 200;
 }
 
+.disclaimer h3 {
+    text-align: justify;
+}
+
 .clear {
     position: relative;
     width: 100%;
@@ -552,4 +556,8 @@ footer a {
 
 footer a:hover {
     border-bottom: 1px solid #F5F5F5;
+}
+
+.button-menu {
+    z-index: 2;
 }
