@@ -50,11 +50,10 @@
                     </form>
                 </section>
             <?php } ?>
-            <!-- Hiding refresh till we can fix it
 
             <div class="refresh-users-rank">
                 <button class="ladda-button btn btn-3 btn-3e icon-arrow-right" data-style="expand-right"><span class="ladda-label">Refresh All Data</span></button>
-            </div>-->
+            </div>
         </div>
 
     </div>
