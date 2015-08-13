@@ -40,7 +40,7 @@ $conn->close();
                 <li id="leaderboard-<?php echo $i+1 ?>">
                     <?php echo $users[$i]['username'] ?>
                     <br/>
-                    <span>Rank: <?php echo $users[$i]['rank']; ?> / Referrals: <?php echo $users[$i]['referrals']; ?></span>
+                    <span>Rank: <?php echo beautifyNumber($users[$i]['rank']) ?> / Referrals: <?php echo beautifyNumber($users[$i]['referrals']) ?></span>
                 </li>
             <?php }
         } ?>
