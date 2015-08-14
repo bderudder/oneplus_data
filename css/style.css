@@ -110,6 +110,21 @@ body :-ms-input-placeholder {
     text-align: justify;
 }
 
+.pagination a
+{
+    border:solid 1px #DDDDDD;
+    width:30px;
+    height:30px;
+}
+
+.pagination li {
+    width: auto;
+    height: auto;
+    font-size:18px;
+    list-style:none;
+    float:left;
+}
+
 .clear {
     position: relative;
     width: 100%;
