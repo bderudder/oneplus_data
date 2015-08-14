@@ -30,7 +30,7 @@
                     $sort = (isset($_GET['sort']) ? $_GET['sort'] : 0);
                     $users = getAllUsers($conn, $sort);
                     $conn->close();
-                    $itemPerPage = 10; //Items per page
+                    $itemPerPage = 35; //Items per page
                     $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1; //Current page number
                     $fromIndex = ($page - 1) * $itemPerPage;
                     $toIndex = (($page * $itemPerPage) > count($users)) ? (count($users) - 1) : ($page * $itemPerPage);
