@@ -1,4 +1,4 @@
-<?php include_once 'fragment/leaderboard_top.php' ?> <!-- I needed to force other css for wrapper somehow here -->
+<?php include_once 'fragment/leaderboard_top.php' ?><!-- I needed to force other css for wrapper somehow here -->
 
 <div class="wrapper-vertical-centered">
     <div class="containerleader">
@@ -8,7 +8,7 @@
 
                 <div class="clear"></div>
 
-            
+
                 <table id="leaderboard">
                     <tr>
                         <th>Website rank</th>
@@ -26,16 +26,23 @@
                         <th>Refferrals</th>
                     </tr>
                     <?php
-                        $conn = connectDB();
-                        $sort = (isset($_GET['sort']) ? $_GET['sort'] : 0);
-                        $users = getAllUsers($conn, $sort);
-                        $conn->close();
-                        $itemPerPage = 35; //Items per page
-                        $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1; //Current page number
-                        $fromIndex = ($page - 1) * $itemPerPage;
-                        $toIndex = (($page * $itemPerPage) > count($users)) ? (count($users)-1) : ($page * $itemPerPage);
+                    $conn = connectDB();
+                    $sort = (isset($_GET['sort']) ? $_GET['sort'] : 0);
+                    $users = getAllUsers($conn, $sort);
+                    $conn->close();
+                    $itemPerPage = 10; //Items per page
+                    $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1; //Current page number
+                    $fromIndex = ($page - 1) * $itemPerPage;
+                    $toIndex = (($page * $itemPerPage) > count($users)) ? (count($users) - 1) : ($page * $itemPerPage);
+
+                    //Pagination variables
+                    $maxPageCountShown = 15; //Odd number only !!
+                    $firstPageButtonNumber = ($page - (($maxPageCountShown - 1) / 2)) < 1 ? 1 : ($page - (($maxPageCountShown - 1) / 2));
+                    $lastPageButtonNumber = (($page + (($maxPageCountShown - 1) / 2)) * $itemPerPage) > count($users) ? ceil(count($users) / $itemPerPage) : ($page + (($maxPageCountShown - 1) / 2));
+                    $prevPage = ($page - 1) < 1 ? 1 : ($page - 1);
+                    $nextPage = (($page + 1) * $itemPerPage) > count($users) ? $page : ($page + 1);
                     ?>
-                    <?php for($i = $fromIndex; $i < $toIndex; $i++) { ?>
+                    <?php for ($i = $fromIndex; $i < $toIndex; $i++) { ?>
                         <tr>
                             <td><?php echo $i + 1 ?></td>
                             <td><?php echo $users[$i]['username'] ?></td>
@@ -44,20 +51,13 @@
                         </tr>
                     <?php } ?>
                 </table>
-            
-            <!-- Missing a pager with href=leaderboard.php?page=pageNumber -->
-
 
                 <ul class="pagination">
-                    <li class="pagination-prev"><a href="#">Previous</a></li>
-                    <li id="active"><a href="?page=1">1</a></li>
-                    <li><a href="?page=2">2</a></li>
-                    <li><a href="?page=3">3</a></li>
-                    <li><a href="?page=4">4</a></li>
-                    <li><a href="?page=5">5</a></li>
-                    <li><a href="?page=6">6</a></li>
-                    <li><a href="?page=7">7</a></li>
-                    <li class="pagination-next"><a href="#">Next</a></li>
+                    <li class="pagination-prev"><a href="?page=<?php echo $prevPage ?>">Previous</a></li>
+                    <?php for ($i = $firstPageButtonNumber; $i <= $lastPageButtonNumber; $i++) { ?>
+                        <li <?php if ($i == $page) echo 'id="active"' ?>><a href="?page=<?php echo $i ?>"><?php echo $i ?></a></li>
+                    <?php } ?>
+                    <li class="pagination-next"><a href="?page=<?php echo $nextPage ?>">Next</a></li>
                 </ul>
             </article>
 
