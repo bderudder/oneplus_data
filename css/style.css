@@ -110,26 +110,15 @@ body :-ms-input-placeholder {
     text-align: justify;
 }
 
-.pagination a
-{
-    border:solid 1px #DDDDDD;
-    width:30px;
-    height:30px;
-}
-
-.pagination li {
-    width: auto;
-    height: auto;
-    font-size:18px;
-    list-style:none;
-    float:left;
-}
 
 .clear {
-    position: relative;
+    clear:both;
     width: 100%;
     height: 50px;
+    content:" ";
+    display:block;
 }
+
 
 section.leaderboard {
     width: 240px;
@@ -227,7 +216,13 @@ section.leaderboard {
     color: #fff;
 }
 
+article.bodyleaderboard{
+    position: relative;
+    top: 300px;
+}
+
 table#leaderboard {
+    z-index: 2;
     width:100%;
 }
 table#leaderboard, th, td {
@@ -248,6 +243,38 @@ table#leaderboard tr:nth-child(odd) {
 table#leaderboard th    {
     background-color: #303030;
     color: white;
+}
+
+ul.pagination{
+    float: right;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+}
+
+ul.pagination li{
+    width: auto;
+    height: auto;
+    font-size:18px;
+    list-style:none;
+    float:left;
+    background-color: #FF1D3D;
+    margin: 0 5px;
+    border:1px solid #ddd;
+}
+
+ul.pagination li a{
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+ul.pagination li#active{
+    background-color:#BF162E;
+}
+
+ul.pagination li:hover{
+    background-color:#BF162E;
 }
 
 
@@ -571,8 +598,4 @@ footer a {
 
 footer a:hover {
     border-bottom: 1px solid #F5F5F5;
-}
-
-.button-menu {
-    z-index: 2;
 }
