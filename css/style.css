@@ -106,6 +106,22 @@ body :-ms-input-placeholder {
     font-weight: 200;
 }
 
+.container h3 a {
+    color: #fff;
+    font: bold 13px 'Source Sans Pro';
+    text-decoration: none;
+    background-color: #BD050D;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+}
+
+.container h3 a:hover{
+    background: #e83452; 
+}
+
 .disclaimer h3 {
     text-align: justify;
 }

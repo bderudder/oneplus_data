@@ -8,6 +8,10 @@
         left: 0;
     }
 
+    article.bodyleaderboard{
+        top: 0;
+    }
+
     .wrapper {
         position: relative;
 
@@ -20,4 +24,5 @@
         -ms-transform: translateY(0%);
         transform: translateY(0%);
     }
+
 }

@@ -18,7 +18,7 @@ $prevEmail = (isset($_GET['email']) ? $_GET['email'] : '');
 
                 <h3>Get your reservation data by filling in your (forum)name, email & kid below.</h3>
 
-                <h3>We use your email for future giveaways.</h3>
+                <h3><a href="disclaimer.php">Disclaimer</a>. We would appreciate some feedback on the <a href="https://forums.oneplus.net/threads/how-many-really-want-the-2-hmrwt2.338938/">forum</a>.</h3>
 
                 <div class="clear"></div>
 
