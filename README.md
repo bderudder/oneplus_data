@@ -1,5 +1,7 @@
 # OnePlus Reservation Data Stats
 
+[Click here to see it work!](http://renssmit.be/oneplus_data/)
+
 Hello and welcome to our project! The main reason we wanted to make this website is to get useful data from the [reservation list of One plus Two](https://oneplus.net/invites) because it's through OnePlus not so simple and quick to come to the data that we provide to our visitors. Besides, we keep everything on a leader board and we regularly update everything automatically.
 
 Another reason we're making this project is because the reservation list of OPT has a lot of fake e-mails. That's because you can boost your rank by referring friends. Visiting our website is to check your personal stats and therefore you have no advantage by adding fake-mails on our website so we don't expect this will happen. This ensures that maybe we will get a better idea of how many people really want to buy a OnePlus Two.
