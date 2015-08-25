@@ -2,7 +2,7 @@
 <footer>
     <p>Made with love by
         <a href="http://www.bdmultimedia.be/" target="_blank">BDmultimedia</a>,
-        <a href="https://forums.oneplus.net/members/xtrme-q.155318/" target="_blank">Xtrme Q</a>,
+        <a href="http://renssmit.be/" target="_blank">Rens Smit</a>,
         <a href="https://forums.oneplus.net/members/jamesst20.131753/" target="_blank">Jamesst20</a>
     </p>
 </footer>
